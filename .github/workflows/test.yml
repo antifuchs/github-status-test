@@ -1,0 +1,16 @@
+name: testing
+on:
+  pull_request:
+
+jobs:
+  failure:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: exit 1
+
+  ci-status:
+    needs:
+      - failure
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "welp"
